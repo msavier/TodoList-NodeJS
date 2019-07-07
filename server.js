@@ -3,10 +3,11 @@ const mustacheExpress = require('mustache-express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('./routes/routes');
+const path = require('path');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/node-todolist', {
+mongoose.connect('mongodb://localhost:mongo:27017/node-todolist', {
   useNewUrlParser: true
    
 }).then(function(){
@@ -21,6 +22,8 @@ mustacheExpressInstance.cache = null;
 app.engine('mustache', mustacheExpressInstance);
 app.set('view engine', 'mustache');
 app.set('views', __dirname + '/views');
+
+
 
 app.use('/', routes);
 

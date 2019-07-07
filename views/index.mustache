@@ -1,18 +1,22 @@
 <!DOCTYPE html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Todos</title>
-    </head>
+        <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen" charset="utf-8">
+        <style>
+
+        </style>
+ </head>
     <body>
        <h1>Mounish's To-Do List!</h1> 
        <form action = "/todos" method = "post">
           <input type="text" name = "description">
-          <button type = "submit">Add</button>
+          <button class="button" type = "submit">Add</button>
        </form>
+       
        <ul>
        {{#todos}}
        <li> <form action="/todos/{{_id}}/completed" method="post">

@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const Todo = require('../models/todo');
+const https = require('https');
+
 
 router.get('/', function(req, res){
     Todo.find({}).then(function(results){
@@ -12,9 +14,13 @@ router.get('/', function(req, res){
         });
 
         res.render('index', {todos: todos, doneTodos:doneTodos} );
+
     });
+
+
     
 });
+
 
 router.post('/todos', function(req, res){
   let newTodo = new Todo({ description: req.body.description});
